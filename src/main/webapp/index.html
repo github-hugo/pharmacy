@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Vue 实例</title>
+    <script type="text/javascript" src="/scripts/vue.min.js" ></script>
+</head>
+<body>
+<div id="app">
+
+    <div style="width: 80%;height: 300px;margin: 0 auto;">
+        <input type="text" v-model="name" placeholder="系统名称">
+        <h1>{{name}}</h1>
+        <span>当前时间</span><input type="text" v-model="date" style="width: 500px">
+        <div>{{date | formatDate}}</div>
+    </div>
+    <div>
+        <button @click="openListPage">列表页面</button>
+    </div>
+
+</div>
+</body>
+</html>
+<script>
+    var app = new Vue({
+        el: '#app',
+        data: {
+            name: '信和药店药品管理系统',
+            date: new Date(),
+        },
+        created: function(){
+
+        },
+        mounted: function () {
+            var self = this;
+            this.timer = setInterval(function () {
+                self.date = new Date();
+            },1000);
+        },
+        beforeDestory:function () {
+            if(this.timer){
+                clearInterval(this.timer);
+            }
+        },
+        filters:{
+            formatDate: function (value) {
+                var date = new Date(value);
+                var year = date.getFullYear();
+                var month = app.padDate(date.getMonth()+1);
+                var day = app.padDate(date.getDay());
+                var hour = app.padDate(date.getHours());
+                var minute = app.padDate(date.getMinutes());
+                var second = app.padDate(date.getSeconds());
+                return year + '-' + month +'-' + day + ' ' + hour + ':' + minute+':' + second;
+            }
+        },
+        methods: {
+            padDate: function (value) {
+               return value <10 ? ('0' + value) : value;
+            },
+            openListPage: function () {
+                window.location.href="/view/list.html";
+            }
+        },
+    })
+</script>
+
