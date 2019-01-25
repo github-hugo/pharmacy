@@ -1,0 +1,39 @@
+
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"-->
+       <!--xmlns:context="http://www.springframework.org/schema/context"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+        <!--http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd-->
+	    <!--http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">-->
+
+    <!--<bean id="dynamicPropertyPlaceholderConfigurer"-->
+          <!--class="com.shencai.fw.web.spring.DynamicPropertyPlaceholderConfigurer"></bean>-->
+
+    <!--<bean id="springApplicationUtil" class="com.shencai.fw.web.spring.SpringApplicationUtil"/>-->
+    <!--<bean id="appSettings" class="com.mlsc.fw.common.config.AppSettings"/>-->
+
+
+    <!--<context:component-scan base-package="com.shencai">-->
+        <!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+    <!--</context:component-scan>-->
+
+    <!--<bean id="cacheDriver" class="com.shencai.fw.cache.driver.impl.RedisCacheDriver"-->
+          <!--destroy-method="close" lazy-init="false" depends-on="dynamicPropertyPlaceholderConfigurer">-->
+        <!--<property name="cacheUrl" value="${redis.cacheUrl}"/>-->
+        <!--<property name="cachePort" value="${redis.cachePort}"/>-->
+        <!--<property name="cachePassword" value="${redis.cachePassword}"/>-->
+        <!--<property name="cacheMaxTotal" value="${redis.cacheMaxTotal}"/>-->
+        <!--<property name="cacheMaxIdle" value="${redis.cacheMaxIdle}"/>-->
+        <!--<property name="cacheMaxWaitMillis" value="${redis.cacheMaxWaitMillis}"/>-->
+        <!--<property name="cacheMinIdle" value="${redis.cacheMinIdle}"/>-->
+        <!--<property name="namespace" value="${redis.namespace}"/>-->
+        <!--<property name="dataBase" value="5"/>-->
+    <!--</bean>-->
+    <!--<bean id="cacheUtil" class="com.shencai.fw.util.CacheUtil" depends-on="cacheDriver"></bean>-->
+    <!--<bean id="loginServiceFactory" class="com.shencai.system.service.impl.LoginServiceFactory" init-method="init" depends-on="springApplicationUtil"/>-->
+    <!--<bean id="orgExtendServiceFactory" class="com.shencai.system.service.impl.OrgExtendServiceFactory" init-method="init" depends-on="springApplicationUtil"/>-->
+
+    <!--<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>-->
+
+    <!--<import resource="spring-dataSource.xml"/>-->
+<!--</beans>-->

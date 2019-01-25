@@ -1,0 +1,139 @@
+<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
+       <!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop"-->
+       <!--xmlns:tx="http://www.springframework.org/schema/tx"-->
+       <!--xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
+		<!--http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd-->
+		<!--http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">-->
+
+    <!--&lt;!&ndash; 慢SQL记录 *start* &ndash;&gt;-->
+    <!--<bean id="statfilter" class="com.alibaba.druid.filter.stat.StatFilter">-->
+        <!--&lt;!&ndash; 开启合并sql &ndash;&gt;-->
+        <!--<property name="mergeSql" value="true"/>-->
+        <!--&lt;!&ndash; 开启慢查询语句,1秒 &ndash;&gt;-->
+        <!--<property name="slowSqlMillis" value="5000"/>-->
+        <!--<property name="logSlowSql" value="true"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="logFilter" class="com.alibaba.druid.filter.logging.Log4jFilter">-->
+        <!--<property name="resultSetLogEnabled" value="true"/>-->
+        <!--<property name="dataSourceLogEnabled" value="false"/>-->
+        <!--<property name="statementExecutableSqlLogEnable" value="true"/>-->
+    <!--</bean>-->
+
+    <!--<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close" lazy-init="false">-->
+        <!--<property name="url" value="${druid.url}"/>-->
+        <!--<property name="username" value="${druid.username}"/>-->
+        <!--<property name="password" value="${druid.password}"/>-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--&lt;!&ndash; 配置初始化大小、最小、最大 &ndash;&gt;-->
+        <!--<property name="initialSize" value="5"/>-->
+        <!--<property name="minIdle" value="20"/>-->
+        <!--<property name="maxActive" value="100"/>-->
+        <!--&lt;!&ndash; 配置获取连接等待超时的时间 &ndash;&gt;-->
+        <!--<property name="maxWait" value="30000"/>-->
+        <!--&lt;!&ndash; 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 &ndash;&gt;-->
+        <!--<property name="timeBetweenEvictionRunsMillis" value="90000"/>-->
+
+        <!--<property name="validationQuery" value="SELECT 1"/>-->
+        <!--<property name="testWhileIdle" value="true"/>-->
+        <!--<property name="testOnBorrow" value="false"/>-->
+        <!--<property name="testOnReturn" value="false"/>-->
+        <!--&lt;!&ndash; 打开PSCache，并且指定每个连接上PSCache的大小 &ndash;&gt;&lt;!&ndash; 如果用Oracle，则把poolPreparedStatements配置为true，mysql可以配置为false。分库分表较多的数据库，建议配置为false。 &ndash;&gt;-->
+        <!--<property name="poolPreparedStatements" value="false"/>-->
+        <!--<property name="maxPoolPreparedStatementPerConnectionSize" value="20"/>-->
+        <!--&lt;!&ndash; 配置监控统计拦截的filters，wall用于防止sql注入，stat用于统计分析 &ndash;&gt;-->
+        <!--<property name="filters" value="wall"/>-->
+
+        <!--<property name="proxyFilters">-->
+            <!--<list>-->
+                <!--<ref bean="statfilter"/>-->
+                <!--<ref bean="logFilter"/>-->
+            <!--</list>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <!--<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+    <!--<bean id="namedParameterJdbcTemplate"-->
+          <!--class="org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate">-->
+        <!--<constructor-arg ref="dataSource"/>-->
+    <!--</bean>-->
+
+
+    <!--&lt;!&ndash; Mybatis &ndash;&gt;-->
+    <!--<bean id="logicSqlInjector" class="com.baomidou.mybatisplus.mapper.LogicSqlInjector"/>-->
+    <!--<bean id="globalConfig" class="com.baomidou.mybatisplus.entity.GlobalConfiguration">-->
+        <!--<property name="sqlInjector" ref="logicSqlInjector"/>-->
+        <!--&lt;!&ndash;-->
+            <!--AUTO->`0`("数据库ID自增")-->
+             <!--INPUT->`1`(用户输入ID")-->
+            <!--ID_WORKER->`2`("全局唯一ID")-->
+            <!--UUID->`3`("全局唯一ID")-->
+        <!--&ndash;&gt;-->
+        <!--<property name="idType" value="3"/>-->
+        <!--&lt;!&ndash; 全局表为下划线命名设置 true &ndash;&gt;-->
+        <!--&lt;!&ndash; <property name="dbColumnUnderline" value="true" /> &ndash;&gt;-->
+        <!--<property name="logicDeleteValue" value="1"/>-->
+        <!--<property name="logicNotDeleteValue" value="0"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; Spring整合Mybatis，更多查看文档：http://mp.baomidou.com &ndash;&gt;-->
+    <!--<bean id="sqlSessionFactory" class="com.baomidou.mybatisplus.spring.MybatisSqlSessionFactoryBean">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <!--&lt;!&ndash; 自动扫描Mapping.xml文件 &ndash;&gt;-->
+        <!--<property name="mapperLocations">-->
+            <!--<list>-->
+                <!--<value>classpath:mybatis/entity/*.xml</value>-->
+            <!--</list>-->
+        <!--</property>-->
+
+        <!--<property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>-->
+        <!--<property name="typeAliasesPackage" value="com.shencai.**.entity"/>&lt;!&ndash; 多个包逗号分隔 , com.shencai.system.entity&ndash;&gt;-->
+        <!--&lt;!&ndash; 全局配置注入 &ndash;&gt;-->
+        <!--<property name="globalConfig" ref="globalConfig"/>-->
+    <!--</bean>-->
+    <!--&lt;!&ndash; MyBatis 动态扫描  &ndash;&gt;-->
+    <!--<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage"-->
+                  <!--value="com.shencai.**.mapper"/>&lt;!&ndash; 多个包逗号分隔 , com.shencai.system.mapper &ndash;&gt;-->
+        <!--<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 配置事务管理 &ndash;&gt;-->
+    <!--<bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash; 配置注解实现管理事务（cglib：proxy-target-class="true"） &ndash;&gt;-->
+    <!--<tx:annotation-driven proxy-target-class="true"/>-->
+
+    <!--&lt;!&ndash; 事务管理 属性 &ndash;&gt;-->
+    <!--<tx:advice id="transactionAdvice">-->
+        <!--<tx:attributes>-->
+            <!--<tx:method name="add*" />-->
+            <!--<tx:method name="append*" />-->
+            <!--<tx:method name="save*" />-->
+            <!--<tx:method name="update*" />-->
+            <!--<tx:method name="modify*" />-->
+            <!--<tx:method name="edit*" />-->
+            <!--<tx:method name="insert*" />-->
+            <!--<tx:method name="delete*" />-->
+            <!--<tx:method name="remove*" />-->
+            <!--<tx:method name="repair" />-->
+
+            <!--<tx:method name="get*"  read-only="true"/>-->
+            <!--<tx:method name="find*"  read-only="true"/>-->
+            <!--<tx:method name="list*"  read-only="true"/>-->
+            <!--<tx:method name="query*"  read-only="true"/>-->
+
+            <!--&lt;!&ndash;<tx:method name="*"  read-only="true"/>&ndash;&gt;-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+
+    <!--&lt;!&ndash; 配置事务的切入点 &ndash;&gt;-->
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="transactionPointcut" expression="execution(* com.shencai..*.service.impl..*.*(..))"/>-->
+        <!--<aop:advisor pointcut-ref="transactionPointcut" advice-ref="transactionAdvice"/>-->
+    <!--</aop:config>-->
+<!--</beans>-->
