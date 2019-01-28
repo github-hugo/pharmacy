@@ -1,25 +1,26 @@
-<!--<?xml version="1.0" encoding="UTF-8"?>-->
-<!--<beans xmlns="http://www.springframework.org/schema/beans"-->
-	<!--xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"-->
-	<!--xmlns:mvc="http://www.springframework.org/schema/mvc"-->
-	<!--xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd-->
-		<!--http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd-->
-		<!--http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">-->
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.2.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
-	<!--<mvc:default-servlet-handler/>-->
+	<mvc:default-servlet-handler/>
 
-	<!--<context:component-scan base-package="com.shencai" use-default-filters="false">-->
-		<!--<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
-	<!--</context:component-scan>-->
+	<context:component-scan base-package="com.xinhe" use-default-filters="false">
+		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+	</context:component-scan>
 
-	<!--&lt;!&ndash; ViewResolver &ndash;&gt;-->
-	<!--<bean-->
-		<!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
-		<!--<property name="viewClass"-->
-			<!--value="org.springframework.web.servlet.view.JstlView" />-->
-		<!--<property name="prefix" value="/" />-->
-		<!--<property name="suffix" value=".html" />-->
-	<!--</bean>-->
+	<!-- ViewResolver -->
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="viewClass"
+			value="org.springframework.web.servlet.view.JstlView" />
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".html" />
+	</bean>
 	<!--<bean id="conversionService" class="org.springframework.format.support.FormattingConversionServiceFactoryBean">-->
 		<!--<property name="converters">-->
 			<!--<set>-->
@@ -27,7 +28,7 @@
 			<!--</set>-->
 		<!--</property>-->
 	<!--</bean>-->
-	<!--&lt;!&ndash;<bean id="fastJsonConfig" class="com.alibaba.fastjson.support.config.FastJsonConfig">-->
+	<!--<bean id="fastJsonConfig" class="com.alibaba.fastjson.support.config.FastJsonConfig">-->
 		<!--&lt;!&ndash; Default charset &ndash;&gt;-->
 		<!--<property name="charset" value="UTF-8" />-->
 		<!--&lt;!&ndash; Default dateFormat &ndash;&gt;-->
@@ -61,7 +62,7 @@
 			<!--</list>-->
 		<!--</property>-->
 	<!--</bean>-->
-	<!--<mvc:annotation-driven/>-->
+	<mvc:annotation-driven/>
 
 	<!--<mvc:annotation-driven conversion-service="conversionService">-->
 		 <!--&lt;!&ndash;参数序列化为对象&ndash;&gt;-->
@@ -87,7 +88,7 @@
 					 <!--allow-credentials="true" max-age="1800" allowed-methods="GET,POST,OPTIONS" />-->
 	<!--</mvc:cors>-->
 
-	<!--<mvc:resources mapping="/main/**" location="/main/" />-->
+	<mvc:resources mapping="/main/**" location="/main/" />
 	<!--<mvc:resources mapping="/webjars/**" location="classpath:/META-INF/resources/webjars/">-->
 		<!--<mvc:resource-chain resource-cache="false" auto-registration="false">-->
 			<!--<mvc:resolvers>-->
@@ -97,4 +98,42 @@
 		<!--</mvc:resource-chain>-->
 	<!--</mvc:resources>-->
 	<!--<bean id="exceptionHandler" class="com.shencai.fw.web.spring.DefaultExceptionHandler"></bean>-->
-<!--</beans>-->
+
+
+	<!--<bean id="dynamicPropertyPlaceholderConfigurer"-->
+	<!--class="com.shencai.fw.web.spring.DynamicPropertyPlaceholderConfigurer"></bean>-->
+
+	<!--<bean id="springApplicationUtil" class="com.shencai.fw.web.spring.SpringApplicationUtil"/>-->
+	<!--<bean id="appSettings" class="com.mlsc.fw.common.config.AppSettings"/>-->
+
+
+	<!--<context:component-scan base-package="com.shencai">-->
+	<!--<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>-->
+	<!--</context:component-scan>-->
+
+	<!--<bean id="cacheDriver" class="com.shencai.fw.cache.driver.impl.RedisCacheDriver"-->
+	<!--destroy-method="close" lazy-init="false" depends-on="dynamicPropertyPlaceholderConfigurer">-->
+	<!--<property name="cacheUrl" value="${redis.cacheUrl}"/>-->
+	<!--<property name="cachePort" value="${redis.cachePort}"/>-->
+	<!--<property name="cachePassword" value="${redis.cachePassword}"/>-->
+	<!--<property name="cacheMaxTotal" value="${redis.cacheMaxTotal}"/>-->
+	<!--<property name="cacheMaxIdle" value="${redis.cacheMaxIdle}"/>-->
+	<!--<property name="cacheMaxWaitMillis" value="${redis.cacheMaxWaitMillis}"/>-->
+	<!--<property name="cacheMinIdle" value="${redis.cacheMinIdle}"/>-->
+	<!--<property name="namespace" value="${redis.namespace}"/>-->
+	<!--<property name="dataBase" value="5"/>-->
+	<!--</bean>-->
+	<!--<bean id="cacheUtil" class="com.shencai.fw.util.CacheUtil" depends-on="cacheDriver"></bean>-->
+	<!--<bean id="loginServiceFactory" class="com.shencai.system.service.impl.LoginServiceFactory" init-method="init" depends-on="springApplicationUtil"/>-->
+	<!--<bean id="orgExtendServiceFactory" class="com.shencai.system.service.impl.OrgExtendServiceFactory" init-method="init" depends-on="springApplicationUtil"/>-->
+
+	<!-- 配置注解扫描 -->
+	<context:component-scan base-package="com.xinhe.pharmacy.aop"/>
+
+	<!-- 打开AOP注解支持，用于支持@Aspect等注解
+         proxy-target-class="true":实现序列化接口后，动态代理强制使用CGLIB;
+    -->
+	<!--<aop:aspectj-autoproxy proxy-target-class="true" expose-proxy="true"/>-->
+
+	<!--<import resource="spring-dataSource.xml"/>-->
+</beans>
