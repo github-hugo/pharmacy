@@ -14,8 +14,12 @@
         <span>当前时间</span><input type="text" v-model="date" style="width: 500px">
         <div>{{date | formatDate}}</div>
     </div>
-    <div>
+    <div style="width: 80%;margin: 0 auto;">
         <button @click="openListPage">列表页面</button>
+    </div>
+
+    <div style="width: 80%;margin: 0 auto;">
+        <button @click="openDrugListPage">药品列表页面</button>
     </div>
 
 </div>
@@ -60,6 +64,9 @@
             },
             openListPage: function () {
                 window.location.href="/main/view/list.html";
+            },
+            openDrugListPage:function () {
+                window.location.href="/main/view/drugList.html";
             }
         },
     })

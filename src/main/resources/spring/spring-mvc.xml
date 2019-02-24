@@ -128,7 +128,7 @@
 	<!--<bean id="orgExtendServiceFactory" class="com.shencai.system.service.impl.OrgExtendServiceFactory" init-method="init" depends-on="springApplicationUtil"/>-->
 
 	<!-- 配置注解扫描 -->
-	<context:component-scan base-package="com.xinhe.pharmacy.aop"/>
+	<context:component-scan base-package="com.xinhe.pharmacy.*"/>
 
 	<!-- 打开AOP注解支持，用于支持@Aspect等注解
          proxy-target-class="true":实现序列化接口后，动态代理强制使用CGLIB;

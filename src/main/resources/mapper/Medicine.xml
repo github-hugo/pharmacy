@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xinhe.pharmacy.mapper.MedicineMapper">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="BaseResultMap" type="com.xinhe.pharmacy.entity.Medicine">
+        <result column="id" property="id"/>
+        <result column="name" property="name"/>
+        <result column="genericName" property="genericName"/>
+        <result column="purchasePrice" property="purchasePrice"/>
+        <result column="price" property="price"/>
+        <result column="quantity" property="quantity"/>
+        <result column="standard" property="standard"/>
+        <result column="purchaseDate" property="purchaseDate"/>
+        <result column="productionDate" property="productionDate"/>
+        <result column="expirationDate" property="expirationDate"/>
+        <result column="manufacturer" property="manufacturer"/>
+        <result column="createdBy" property="createdBy"/>
+        <result column="createdTime" property="createdTime"/>
+        <result column="editedBy" property="editedBy"/>
+        <result column="editedTime" property="editedTime"/>
+        <result column="deleteFlag" property="deleteFlag"/>
+    </resultMap>
+
+    <select id="countMedicine" resultType="java.lang.Integer">
+        SELECT count(m.id)
+        FROM medicine m
+        WHERE m.deleteFlag = '0'
+    </select>
+
+    <select id="listMedicine" resultType="com.xinhe.pharmacy.entity.Medicine">
+        SELECT  m.id,
+                m.name,
+                m.genericName,
+                m.purchasePrice,
+                m.price,
+                m.quantity,
+                m.standard,
+                m.purchaseDate,
+                m.productionDate,
+                m.expirationDate,
+                m.manufacturer
+        FROM medicine m
+        WHERE m.deleteFlag = '0'
+    </select>
+
+</mapper>
