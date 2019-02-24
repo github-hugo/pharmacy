@@ -7,29 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5260eabb-a76c-4aaa-954d-498c0f2f3739" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/thinkinginjava/proxy/Interface.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xinhe/common/JsonResult.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xinhe/pharmacy/controller/MedicineController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xinhe/pharmacy/entity/Medicine.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xinhe/pharmacy/mapper/MedicineMapper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xinhe/pharmacy/service/IMedicineService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/com/xinhe/pharmacy/service/impl/MedicineServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mapper/Medicine.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/entity/Medicine.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/entity/XfComplain.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/main/scripts/jquery-3.3.1.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/main/scripts/jquery-3.3.1.min.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/main/style/drugList.css" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/main/view/drugList.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/webapp/main/view/drugList.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/java/com/xinhe/pharmacy/MpGenerator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-mvc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/spring/spring-mybatis.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/webapp/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/webapp/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/classes/spring/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/classes/spring/spring-mvc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pharmacy/WEB-INF/classes/spring/spring-mvc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/pharmacy/WEB-INF/classes/spring/spring-mvc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/pharmacy/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/pharmacy/index.html" afterDir="false" />
@@ -64,8 +42,8 @@
       <file leaf-file-name="Interface.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/thinkinginjava/proxy/Interface.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="84">
-              <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+            <state relative-caret-position="147">
+              <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
             </state>
           </provider>
         </entry>
@@ -440,7 +418,7 @@
       <workItem from="1550499565752" duration="6676000" />
       <workItem from="1550577233863" duration="3807000" />
       <workItem from="1550582671098" duration="5401000" />
-      <workItem from="1550979429777" duration="642000" />
+      <workItem from="1550979429777" duration="2312000" />
     </task>
     <task id="LOCAL-00001" summary="modify config:&#10;connect mysql db success">
       <created>1548684278715</created>
@@ -449,11 +427,18 @@
       <option name="project" value="LOCAL" />
       <updated>1548684278715</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="modify config:&#10;connect mysql db success">
+      <created>1550981728951</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1550981728951</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="47130000" />
+    <option name="totallyTimeSpent" value="48800000" />
   </component>
   <component name="TodoView" selected-index="3">
     <todo-panel id="selected-file">
@@ -838,8 +823,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/thinkinginjava/proxy/Interface.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="84">
-          <caret line="4" column="3" lean-forward="true" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
+        <state relative-caret-position="147">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
         </state>
       </provider>
     </entry>
