@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,Chrome=1"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=9"/>
+    <link rel="shortcut icon" href="./main/img/favicon.ico">
+
+    <meta name="description" content="Bootstrap Admin App + jQuery">
+    <meta name="keywords" content="app, responsive, jquery, bootstrap, dashboard, admin">
+    <title>江苏省生态环境信访举报信息系统</title>
+    <script type="text/javascript" src="webjars/fw-web/main/common/vue-boot.js"></script>
+    <script type="text/javascript" src="webjars/fw-web/main/common/RSA.js"></script>
+    <link rel="stylesheet" href="./main/css/login/login.css">
+</head>
+<body>
+<div id="app" v-cloak style="padding: 0;margin: 0;">
+    <template>
+        <el-container>
+            <el-header>
+                <img src="./main/img/logo.png" alt="江苏省生态环境信访举报信息系统"/>
+            </el-header>
+            <el-main :class="bgImgClass">
+                <el-card class="box-card">
+                    <div slot="header" class="card-header">
+                        <span>用户登录</span>
+                    </div>
+                    <el-form :model="loginForm" busiStatus-icon :rules="loginRule" ref="loginForm" label-width="0px">
+                        <el-form-item prop="userId">
+                            <el-row :gutter="20">
+                                <el-col :span="24">
+                                    <el-input v-model="loginForm.userId" placeholder="用户名" @focus="resetValidate('useridMsg')"
+                                        prefix-icon="iconfont icon-shouji" @keyup.enter.native="submitForm('loginForm')" auto-complete="off" :maxlength="11" :minlength="11">
+                                    </el-input>
+                                </el-col>
+                            </el-row>
+                            <el-row :gutter="20" v-show="useridMsg != ''">
+                                <el-col :span="24" class="errMsg">
+                                    <span v-text="useridMsg"></span>
+                                </el-col>
+                            </el-row>
+                        </el-form-item>
+                        <el-form-item prop="password">
+                            <el-row :gutter="20">
+                                <el-col :span="24">
+                                    <el-input v-model="loginForm.password" placeholder="密码" @focus="resetValidate('passwordMsg')"
+                                       prefix-icon="iconfont icon-mima" @keyup.enter.native="submitForm('loginForm')" auto-complete="off" type="password"></el-input>
+                                </el-col>
+                            </el-row>
+                            <el-row :gutter="20" v-show="passwordMsg != ''">
+                                <el-col :span="24" class="errMsg">
+                                    <span v-text="passwordMsg"></span>
+                                </el-col>
+                            </el-row>
+                        </el-form-item>
+                        <el-form-item>
+                            <el-button :loading="loginLoading" type="primary" @click="submitForm('loginForm')" ><span v-text="loginBtnMsg"></span></el-button>
+                        </el-form-item>
+                    </el-form>
+                    <div class="card-footer login">
+                        <div><a href="resetPassword.html">忘记密码</a></div>
+                        <div class="reg" v-bind:class="{ active: openAnomalyLoginCheck }">还没有账号？<a href="register.html">立即注册</a></div>
+                        <div>
+                            <span class="warning">为保证系统稳定，建议使用</span>
+                            <a href="https://pan.baidu.com/s/1dTB0K2">谷歌浏览器</a>
+                        </div>
+                    </div>
+                </el-card>
+            </el-main>
+            <el-footer>
+                <span> &copy; 2017 - 江苏神彩科技股份有限公司</span>
+            </el-footer>
+        </el-container>
+    </template>
+</div>
+<script>
+    var returnCitySN = returnCitySN || {cid:'', cname:'' , cip:''};
+</script>
+<script type="text/javascript" src="./main/js/login/login.js"></script>
+</body>

@@ -1,0 +1,112 @@
+[v-cloak] {
+    display: none;
+}
+
+body {
+    background-color: white;
+}
+
+div#app {
+    padding: 5px;
+}
+
+.el-row {
+    margin-bottom: 5px;
+}
+
+.el-row .el-form-item {
+    margin-bottom: 13px;
+}
+
+.el-row .el-form-item .el-date-editor .el-range-input {
+    width: 80px;
+}
+
+.el-table .row_padding td {
+    padding: 3px 0;
+}
+
+.el-table .head_padding th {
+    padding: 5px 0;
+    text-align: center;
+}
+
+.el-table--border .cell {
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+.el-table--border .cell .el-button + .el-button {
+    margin-left: 5px;
+}
+
+.el-table--border .cell .el-button + div {
+    display: inline;
+    margin-left: 5px;
+}
+
+.el-table--border td:first-child .cell {
+    padding: 3px 8px;
+}
+
+.el-input__inner {
+    padding: 0 10px;
+}
+
+.el-form-item .el-button + .el-button {
+    margin-left: 15px;
+}
+
+.el-dialog__footer {
+    text-align: center;
+}
+
+.el-dialog__footer .el-button + .el-button {
+    margin-left: 15px;
+}
+
+div .el-pagination .el-icon-arrow-left:before {
+    position: relative;
+    content: "上一页";
+    right: 5px;
+}
+
+div .el-pagination .el-icon-arrow-right:before {
+    position: relative;
+    content: "下一页";
+    right: 5px;
+}
+.el-message-box__wrapper {
+    z-index: 12000 !important;
+}
+
+.el-cascader.is-disabled .el-cascader__label {
+    color: #5e6167;
+}
+
+.el-input.is-disabled .el-input__inner {
+    color: #5e6167;
+}
+
+.el-textarea.is-disabled .el-textarea__inner {
+    color: #5e6167;
+}
+
+.tdBtn {
+    width: 100%;
+    text-align: left;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.el-table--enable-row-hover .el-table__body tr:hover>td {
+    background-color: #cde0f5;
+}
+
+.el-table--striped .el-table__body tr.el-table__row--striped.current-row td, .el-table__body tr.current-row>td, .el-table__body tr.hover-row.current-row>td, .el-table__body tr.hover-row.el-table__row--striped.current-row>td, .el-table__body tr.hover-row.el-table__row--striped>td, .el-table__body tr.hover-row>td {
+    background-color: #cde0f5;
+}
+.el-tree--highlight-current .el-tree-node.is-current>.el-tree-node__content {
+    background-color: #cde0f5;
+}

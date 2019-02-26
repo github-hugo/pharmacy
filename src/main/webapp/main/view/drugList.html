@@ -3,13 +3,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <script type="text/javascript" src="/main/scripts/jquery-3.3.1.min.js"></script>
-    <script type="text/javascript" src="/main/scripts/vue.min.js"></script>
+    <!--<script type="text/javascript" src="/main/scripts/jquery/jquery-3.3.1.min.js"></script>-->
+    <!--<script type="text/javascript" src="/main/scripts/vue/vue.min.js"></script>-->
+    <script type="text/javascript" src="/main/common/vue-common.js"></script>
     <link rel="stylesheet" type="text/css" href="/main/style/drugList.css">
 </head>
 <body>
 <div id="app">
-    <h1>药品列表</h1>
+
+    <h3>药品列表</h3>
+    <div>
+        <el-table :data="tableData" border style="width: 100%">
+            <el-table-column prop="id" label="编号" width="50" align="center"></el-table-column>
+            <el-table-column prop="name" label="药品名称" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="genericName" label="俗称" width="200" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="price" label="价格" width="80" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="purchasePrice" label="采购价格" width="80" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="quantity" label="数量" width="80" align="center" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="standard" label="规格" width="80" align="center" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="manufacturer" label="生产厂家" width="200" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="purchaseDate" label="进货日期" width="100" align="center" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="productionDate" label="生产日期" width="100" align="center" show-overflow-tooltip></el-table-column>
+            <el-table-column prop="expirationDate" label="失效日期" width="100" align="center" show-overflow-tooltip></el-table-column>
+        </el-table>
+    </div>
     
 
 </div>
