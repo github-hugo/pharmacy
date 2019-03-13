@@ -4,6 +4,10 @@ package com.xinhe.pharmacy.controller;
 import com.xinhe.common.JsonResult;
 import com.xinhe.pharmacy.entity.Medicine;
 import com.xinhe.pharmacy.service.IMedicineService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -21,6 +25,7 @@ import org.springframework.stereotype.Controller;
  */
 @Controller
 @RequestMapping("/medicine")
+@Api(value = "/api/activity", tags = "", description = "")
 public class MedicineController {
 
     @Autowired
@@ -28,6 +33,7 @@ public class MedicineController {
 
     @ResponseBody
     @RequestMapping({"/list"})
+    @ApiOperation(value = "", notes = "", httpMethod = "POST", response = Medicine.class)
     public JsonResult<Medicine> list() {
         JsonResult json = JsonResult.getSuccessResult();
         try {
